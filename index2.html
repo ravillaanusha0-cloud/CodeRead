@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CodeReads — AI Code Explainer</title>
+<a href="style.css"></a>
+<a href="script.js"></a>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">code<span class="logo-dot">reads</span>.ai</div>
+  <div class="ai-status">
+    <div class="ai-dot" id="aiDot"></div>
+    <span id="aiStatusText">ready</span>
+  </div>
+  <button class="key-btn" id="keyBtn" onclick="openModal()">⚙ API key</button>
+</div>
+
+<div class="main">
+  <div class="hero">
+    <div class="hero-pre">// AI-powered code explainer</div>
+    <h1>Paste code.<br/>Get <span class="hl">instant clarity.</span></h1>
+    <p class="hero-sub">No more Googling every line. Paste any snippet and watch an AI walk through it — step by step, in plain English, at exactly the level you need.</p>
+  </div>
+
+  <div class="input-panel">
+    <div class="panel-bar">
+      <div class="lang-tabs">
+        <button class="lang-tab on" onclick="setLang(this,'auto')">auto</button>
+        <button class="lang-tab" onclick="setLang(this,'python')">python</button>
+        <button class="lang-tab" onclick="setLang(this,'javascript')">js</button>
+        <button class="lang-tab" onclick="setLang(this,'java')">java</button>
+        <button class="lang-tab" onclick="setLang(this,'sql')">sql</button>
+        <button class="lang-tab" onclick="setLang(this,'cpp')">c++</button>
+      </div>
+      <div class="bar-right">
+        <button class="sample-btn" onclick="loadSample()">try sample</button>
+        <button class="sample-btn" onclick="document.getElementById('codeIn').value=''; hideOutput()">clear</button>
+      </div>
+    </div>
+    <textarea id="codeIn" placeholder="# paste your code here...
+
+def is_palindrome(s):
+    s = s.lower().replace(' ', '')
+    return s == s[::-1]"></textarea>
+  </div>
+
+  <div class="controls-row">
+    <span class="depth-label">explain for:</span>
+    <div class="depth-tabs">
+      <button class="depth-tab" onclick="setDepth(this,'beginner')">beginner</button>
+      <button class="depth-tab on" onclick="setDepth(this,'student')">CS student</button>
+      <button class="depth-tab" onclick="setDepth(this,'interview')">interview prep</button>
+    </div>
+    <button class="go-btn" id="goBtn" onclick="runExplain()">
+      <span>Explain</span>
+      <span>→</span>
+    </button>
+  </div>
+
+  <div id="outputSection">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- KEY MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head">// CONNECT AI</div>
+    <div class="modal-title">Add your API key</div>
+    <div class="modal-sub">CodeReads uses AI to generate explanations. Your key is stored in this browser session only.</div>
+
+    <div class="prov-btns">
+      <button class="prov-btn on" id="pb-claude" onclick="setProv('claude')">Claude</button>
+      <button class="prov-btn" id="pb-openai" onclick="setProv('openai')">OpenAI</button>
+      <button class="prov-btn" id="pb-gemini" onclick="setProv('gemini')">Gemini</button>
+      <button class="prov-btn" id="pb-groq" onclick="setProv('groq')">Groq</button>
+    </div>
+
+    <div class="modal-err" id="modalErr"></div>
+    <input type="password" class="modal-input" id="keyIn" placeholder="paste key here"/>
+    <div class="modal-note" id="modalNote"></div>
+    <button class="modal-save" onclick="saveKey()">Connect</button>
+    <div class="modal-cancel" onclick="closeModal()">cancel</div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
