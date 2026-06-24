@@ -1,6 +1,6 @@
   let lang  = 'auto';
   let depth = 'student';
-  let prov  = 'claude';
+  let prov  = 'groq';
   let apiKey = '';
 
   const PROVS = {
