@@ -4,14 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CodeReads — AI Code Explainer</title>
-  <a href="style.css"></a>
-  <a href="script.js"></a>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   
 </head>
 <body>
-<script src="script.js"></script>
 <div class="topbar">
   <div class="logo">code<span class="logo-dot">reads</span>.ai</div>
   <div class="ai-status">
@@ -43,13 +40,9 @@
         <button class="sample-btn" onclick="document.getElementById('codeIn').value=''; hideOutput()">clear</button>
       </div>
     </div>
-    <textarea id="codeIn" placeholder="# paste your code here...
-
-def is_palindrome(s):
-    s = s.lower().replace(' ', '')
-    return s == s[::-1]"></textarea>
-  </div>
-
+    <textarea id="codeIn" placeholder="# paste your code here...</textarea>
+      </div>
+      
   <div class="controls-row">
     <span class="depth-label">explain for:</span>
     <div class="depth-tabs">
